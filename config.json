@@ -1,0 +1,72 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "listen": "0.0.0.0",
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "2e9a59d9-f182-4429-b83c-a87c16837e82",
+            "flow": "xtls-rprx-vision"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "dest": "www.microsoft.com:443",
+          "xver": 0,
+          "serverNames": [
+            "maps.google.com",
+            "mobilemaps.googleapis.com",
+            "mobilemaps-pa-gz.googleapis.com",
+            "cdn.whatsapp.net",
+            "fna.whatsapp.net",
+            "youtube.com",
+            "i.ytimg.com",
+            "youtubei.googleapis.com",
+            "redirector.googlevideo.com",
+
+            "www.maps.google.com",
+            "www.mobilemaps.googleapis.com",
+            "www.mobilemaps-pa-gz.googleapis.com",
+            "www.cdn.whatsapp.net",
+            "www.fna.whatsapp.net",
+            "www.youtube.com",
+            "www.i.ytimg.com",
+            "www.youtubei.googleapis.com",
+            "www.redirector.googlevideo.com",
+            
+            "eapi.stc.com.sa",
+            "cdn.branch.io",
+            "api2.branch.io",
+            "l.contentsquare.net",
+            "mobile-production.content-square.net",
+            "firebaselogging-pa.googleapis.com",
+            "ota.lokalise.com"
+          ],
+          "privateKey": "gKWVs_axazVmgRzTCyTFeOz-8VW9x-CV_rjk7R-yhF8",
+          "shortIds": [
+            "abcd1234"
+          ]
+        }
+      },
+      "sniffing": {
+        "enabled": false
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "tag": "direct"
+    }
+  ]
+}
