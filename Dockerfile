@@ -1,12 +1,15 @@
-FROM alpine:latest AS builder
-RUN apk add --no-cache curl unzip
-# All-in-one download command to prevent URL truncation
-RUN curl -L -H "Cache-Control: no-cache" -o xray.zip https://github.com && mkdir /xray_bin && unzip xray.zip -d /xray_bin
+# Use the official Xray image directly
+FROM teddysun/xray:latest
 
-FROM alpine:latest
-RUN apk add --no-cache ca-certificates mailcap && update-ca-certificates
+# Set the working directory
 WORKDIR /etc/xray
-COPY --from=builder /xray_bin/xray /usr/bin/xray
+
+# Copy your local config.json into the container
+# Ensure config.json is in the same folder as this Dockerfile on GitHub
 COPY config.json /etc/xray/config.json
+
+# Matches your config port
 EXPOSE 343
+
+# Run Xray
 CMD ["/usr/bin/xray", "run", "-config", "/etc/xray/config.json"]
