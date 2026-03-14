@@ -9,7 +9,7 @@ WORKDIR /etc/xray
 COPY config.json /etc/xray/config.json
 
 # Matches your config port
-EXPOSE 443
+EXPOSE 343
 
 # Run Xray
 CMD ["/usr/bin/xray", "run", "-config", "/etc/xray/config.json"]
